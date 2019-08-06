@@ -1,0 +1,6 @@
+rename config
+open_with 2
+shell ./build.sh
+search config
+search Xre
+delete
