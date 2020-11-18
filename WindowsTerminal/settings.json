@@ -1,0 +1,92 @@
+
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+
+    "profiles":
+    [
+        {
+            // Make changes here to the powershell.exe profile
+            "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+            "name": "Windows PowerShell",
+            "suppressApplicationTitle": true,
+            "historySize": 9001,
+            "cursorColor": "#FFFFFF",
+            "cursorShape": "bar",
+            "colorScheme": "Juan",
+            // "fontFace": "DejaVu Sans Mono for Powerline",
+            "fontFace": "Delugia Nerd Font",
+            "fontSize": 10,
+            "commandline": "powershell.exe",
+            "hidden": false,
+            "useAcrylic": true,
+            "acrylicOpacity": 0.95
+        },
+        {
+            // Make changes here to the cmd.exe profile
+            "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+            "name": "cmd",
+            "commandline": "cmd.exe",
+            "historySize": 9001,
+            "fontSize": 10,
+            // "fontFace": "DejaVu Sans Mono for Powerline",
+            "fontFace": "Delugia Nerd Font",
+            "colorScheme": "Juan",
+            "hidden": false
+        },
+        {
+            "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+            "hidden": false,
+            "fontSize": 10,
+            "name": "Ubuntu 16.04",
+            // "fontFace": "DejaVu Sans Mono for Powerline",
+            "fontFace": "Delugia Nerd Font",
+            "source": "Windows.Terminal.Wsl"
+        },
+        {
+            "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+            "hidden": false,
+            "name": "Azure Cloud Shell",
+            "source": "Windows.Terminal.Azure"
+        },
+        {
+            "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+            "hidden": false,
+            "name": "Ubuntu-18.04",
+            "source": "Windows.Terminal.Wsl"
+        }
+    ],
+
+    // Add custom color schemes to this array
+    "schemes": [
+        {
+            "name": "Juan",
+            "foreground": "#C0BEC5",
+            "background": "#131117",
+            "black": "#131117",
+            "red": "#B90005",
+            "green": "#399732",
+            "yellow": "#BBB600",
+            "blue": "#0636DE",
+            "purple": "#8D02B4",
+            "cyan": "#3097A8",
+            "white": "#C0BEC5",
+            "brightBlack": "#55525C",
+            "brightRed": "#ED3960",
+            "brightGreen": "#0BD500",
+            "brightYellow": "#FFF795",
+            "brightBlue": "#3E6DFD",
+            "brightPurple": "#C602FD",
+            "brightCyan": "#80CDFD",
+            "brightWhite": "#F0EFF1"
+        }
+    ],
+
+    // Add any keybinding overrides to this array.
+    // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": []
+}
