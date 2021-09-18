@@ -2,8 +2,9 @@
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/hoyosjs/.oh-my-zsh"
-PWL_PACK="/home/hoyosjs/.local/lib/python2.7/site-packages/powerline"
+export ZSH="$HOME/.oh-my-zsh"
+PWL_PACK="$HOME/.local/lib/python2.7/site-packages/powerline"
+
 # export TERM="screen-256color"
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -60,7 +61,7 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-git
+    git
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -109,12 +110,6 @@ autoload -Uz compinit && compinit
 prompt_dir() {
     prompt_segment blue white "%1~"
 }
-
 prompt_context() {
     prompt_segment cyan black "%n@%m"
 }
-
-
-if [[ "$TMUX" = "" ]]; then
-    tmux -2 attach -t default || tmux -2 new -s default
-fi

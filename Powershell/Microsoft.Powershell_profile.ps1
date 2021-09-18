@@ -1,4 +1,4 @@
-﻿Import-Module posh-git
+Import-Module posh-git
 Set-PSReadlineOption -BellStyle None
 
 $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $false
@@ -16,7 +16,8 @@ $GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $false
 # }
 
 function devcmd { & $env:comspec /k "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\Tools\VsDevCmd.bat" }
-function devpwsh { Import-Module "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"; Enter-VsDevShell f9b0d9ba -StartInPath $(Get-Location); }
+function devpwsh { Import-Module "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"; Enter-VsDevShell f9b0d9ba -StartInPath $(Get-Location) -DevCmdArguments '-arch=x86 -no_logo'; }
+function devpwsh64 { Import-Module "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\Tools\Microsoft.VisualStudio.DevShell.dll"; Enter-VsDevShell f9b0d9ba -StartInPath $(Get-Location) -DevCmdArguments '-arch=x64 -no_logo'; }
 function devcmd64 { & $env:comspec /k "C:\Program Files (x86)\Microsoft Visual Studio\2019\Preview\Common7\Tools\VsDevCmd.bat" -arch=amd64 -host_arch=amd64 }
 
 . "$PSScriptRoot\Scripts\GhCompletion.ps1"
@@ -34,7 +35,31 @@ function windbg
     Write-Host $Remaining
     Invoke-Expression "& `"E:\util\toolssw\$arch\windbg.exe`" $Remaining"
 }
+
+function mdv
+{
+    [CmdletBinding(PositionalBinding=$false)]
+    Param
+    (
+        [parameter(mandatory=$false, position=1, ValueFromRemainingArguments=$true)] $Remaining
+    )
+    Write-Host $Remaining
+    Invoke-Expression "& `"E:\util\mdv.1.0.0-beta3.20607.2\tools\mdv.exe`" $Remaining"
+}
+
 function gflags {param ([string] $arch) &"E:\util\toolssw\$arch\gflags.exe" }
+
+function rf-helix {
+    [CmdletBinding(PositionalBinding=$false)]
+    Param
+    (
+        [parameter(mandatory=$true, position=0)][string]$helixBlurb,
+        [parameter(mandatory=$true, position=1)][string]$path
+    )
+    $data = ConvertFrom-Json $helixBlurb;
+    mkdir $path
+    Invoke-Expression -Command $(runfo get-helix-payload --jobid $($data.HelixJobId) --workitems $($data.HelixWorkItemName) -o $path)
+}
 
 function repo { param ([string] $name) cd "E:\repos\$name" }
 function mocks { param ([string] $name) cd "E:\mocks\$name" }
