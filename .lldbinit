@@ -1,0 +1,6 @@
+#START - ADDED BY SOS INSTALLER
+# plugin load /home/juhoyosa/.dotnet/sos/libsosplugin.so
+# setsymbolserver -ms
+#END - ADDED BY SOS INSTALLER
+settings set target.x86-disassembly-flavor intel
+command script import /home/juhoyosa/.local/lib/python3.6/site-packages/voltron/entry.py

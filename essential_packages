@@ -1,8 +1,8 @@
-tmux
+tmux + ruby + temuxinator
 vim-gnome
 python3
 zsh
-oh-my-zsh +
+oh-my-zsh + font (delugia)
 ag 
 gh
 git
