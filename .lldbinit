@@ -3,4 +3,5 @@
 # setsymbolserver -ms
 #END - ADDED BY SOS INSTALLER
 settings set target.x86-disassembly-flavor intel
+settings set frame-format "frame #${frame.index}: ${ansi.fg.yellow}IP=${frame.pc} SP={frame.sp}${ansi.normal}{ ${module.file.basename}{\`${function.name-with-args}{${frame.no-debug}${function.pc-offset}}}}{ at ${ansi.fg.cyan}${line.file.basename}${ansi.normal}:${ansi.fg.yellow}${line.number}${ansi.normal}{:${ansi.fg.yellow}${line.column}${ansi.normal}}}{${function.is-optimized} [opt]}{${frame.is-artificial} [artificial]}\n"
 command script import /home/juhoyosa/.local/lib/python3.6/site-packages/voltron/entry.py
